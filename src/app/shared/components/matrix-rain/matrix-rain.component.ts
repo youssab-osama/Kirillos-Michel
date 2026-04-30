@@ -15,6 +15,9 @@ import { isPlatformBrowser } from '@angular/common';
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `<canvas #canvas class="matrix-canvas" aria-hidden="true"></canvas>`,
   styleUrl: './matrix-rain.component.css',
+  host: {
+    'style': 'display: block; position: absolute; inset: 0; overflow: hidden;'
+  }
 })
 export class MatrixRainComponent implements AfterViewInit, OnDestroy {
   private readonly platformId = inject(PLATFORM_ID);
@@ -66,35 +69,41 @@ export class MatrixRainComponent implements AfterViewInit, OnDestroy {
     );
   }
 
+  private frameCount = 0;
+
   private animate(): void {
+    if (!this.ctx) return;
+
+    this.frameCount++;
+    // Skip every other frame to reduce speed by 50%
+    if (this.frameCount % 2 !== 0) {
+      this.animationId = requestAnimationFrame(() => this.animate());
+      return;
+    }
+
     // Fading trail
-    this.ctx.fillStyle = 'rgba(4, 4, 8, 0.1)';
+    this.ctx.fillStyle = 'rgba(4, 4, 8, 0.15)';
     this.ctx.fillRect(0, 0, this.w, this.h);
 
     this.ctx.font = `${this.fontSize}px 'JetBrains Mono', monospace`;
 
     for (let i = 0; i < this.drops.length; i++) {
-      // Decide whether to show a command or a character
-      const isCommand = Math.random() > 0.98;
+      const isCommand = Math.random() > 0.95;
       const char = isCommand 
         ? this.commands[Math.floor(Math.random() * this.commands.length)]
         : this.chars[Math.floor(Math.random() * this.chars.length)];
         
       const y = this.drops[i] * this.fontSize;
 
-      // Bright leading character/command
-      if (this.drops[i] > 0) {
-        // Leading edge
-        this.ctx.fillStyle = 'rgba(124, 58, 237, 1)';
+      if (y > 0) {
+        this.ctx.fillStyle = '#9d5ff5';
         this.ctx.fillText(char, i * this.fontSize, y);
         
-        // Trail characters
-        this.ctx.fillStyle = 'rgba(34, 211, 238, 0.35)';
+        this.ctx.fillStyle = 'rgba(34, 211, 238, 0.5)';
         const trailChar = this.chars[Math.floor(Math.random() * this.chars.length)];
         this.ctx.fillText(trailChar, i * this.fontSize, y - this.fontSize);
       }
 
-      // Reset when column reaches bottom
       if (y > this.h && Math.random() > 0.975) {
         this.drops[i] = 0;
       }

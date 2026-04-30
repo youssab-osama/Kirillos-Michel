@@ -7,6 +7,7 @@ import { SkillsComponent } from './features/skills/skills.component';
 import { ExperienceComponent } from './features/experience/experience.component';
 import { ProjectsComponent } from './features/projects/projects.component';
 import { ContactComponent } from './features/contact/contact.component';
+import { CursorSpotlightComponent } from './shared/components/cursor-spotlight/cursor-spotlight.component';
 
 @Component({
   selector: 'app-root',
@@ -19,6 +20,7 @@ import { ContactComponent } from './features/contact/contact.component';
     ExperienceComponent,
     ProjectsComponent,
     ContactComponent,
+    CursorSpotlightComponent,
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './app.html',

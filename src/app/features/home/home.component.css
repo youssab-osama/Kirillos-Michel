@@ -367,7 +367,7 @@
 /* Responsive */
 @media (max-width: 900px) {
   .home__scroll {
-    display: none;
+    bottom: 0rem;
   }
 
   .home__container {
