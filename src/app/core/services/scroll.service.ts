@@ -45,8 +45,35 @@ export class ScrollService {
   scrollTo(sectionId: string): void {
     if (!isPlatformBrowser(this.platformId)) return;
     const el = document.getElementById(sectionId);
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
+    if (!el) return;
+
+    const navbarHeight = 80;
+    const targetY = el.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
+
+    this.smoothScrollTo(targetY, 700);
+  }
+
+  private smoothScrollTo(targetY: number, duration: number): void {
+    const startY = window.pageYOffset;
+    const distanceY = targetY - startY;
+    const startTime = performance.now();
+
+    const easeInOutCubic = (t: number): number =>
+      t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+
+    const step = (currentTime: number): void => {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const easedProgress = easeInOutCubic(progress);
+
+      window.scrollTo(0, startY + distanceY * easedProgress);
+
+      if (progress < 1) {
+        requestAnimationFrame(step);
+      }
+    };
+
+    requestAnimationFrame(step);
   }
 }
+

@@ -53,7 +53,7 @@
 
       <!-- Right: Info Cards -->
       <div class="about__info">
-        <!-- Personal Details -->
+        <!-- Profile Details Card -->
         <div class="about__info-card">
           <h3 class="about__info-title">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -61,28 +61,52 @@
             </svg>
             Profile
           </h3>
-          <dl class="about__details">
-            <div class="about__detail">
-              <dt>Name</dt>
-              <dd>Kirolos Michel</dd>
+
+          <!-- Inner cards grid -->
+          <div class="about__details">
+
+            <!-- Name -->
+            <div class="about__detail-card">
+              <dt class="about__detail-key">Name</dt>
+              <dd class="about__detail-val">Kirolos Michel</dd>
             </div>
-            <div class="about__detail">
-              <dt>Location</dt>
-              <dd>Cairo, Egypt</dd>
+
+            <!-- Focus (was Specialization) -->
+            <div class="about__detail-card about__detail-card--accent-cyan">
+              <dt class="about__detail-key">Focus</dt>
+              <dd class="about__detail-val about__detail-val--cyan">
+                <span class="about__tag-chip about__tag-chip--cyan">Offensive Security</span>
+              </dd>
             </div>
-            <div class="about__detail">
-              <dt>Nationality</dt>
-              <dd>Egyptian</dd>
+
+            <!-- Goal -->
+            <div class="about__detail-card about__detail-card--accent-mixed">
+              <dt class="about__detail-key">Goal</dt>
+              <dd class="about__detail-val">
+                <span class="about__goal-text">
+                  <span class="about__goal-principal">Principal</span>
+                  <span> </span>
+                  <span class="about__goal-offensive">Offensive</span>
+                  <span class="about__goal-rest"> Security Engineer</span>
+                </span>
+              </dd>
             </div>
-            <div class="about__detail">
-              <dt>Languages</dt>
-              <dd>Arabic (Native) · English (B2)</dd>
+
+            <!-- Languages -->
+            <div class="about__detail-card">
+              <dt class="about__detail-key">Languages</dt>
+              <dd class="about__detail-val">Arabic (Native) · English (B2)</dd>
             </div>
-            <div class="about__detail">
-              <dt>Email</dt>
-              <dd><a href="mailto:kirol01sbusiness@gmail.com" class="about__link">kirol01sbusiness&#64;gmail.com</a></dd>
+
+            <!-- Email -->
+            <div class="about__detail-card">
+              <dt class="about__detail-key">Email</dt>
+              <dd class="about__detail-val">
+                <a href="mailto:kirol01sbusiness@gmail.com" class="about__link">kirol01sbusiness&#64;gmail.com</a>
+              </dd>
             </div>
-          </dl>
+
+          </div>
         </div>
 
         <!-- Soft Skills -->
