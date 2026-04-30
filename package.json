@@ -7,6 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
+    "deploy": "ng build --base-href /dark-angular-portfolio/ && npx -y angular-cli-ghpages --dir=dist/dark-angular-portfolio/browser",
     "serve:ssr:dark-angular-portfolio": "node dist/dark-angular-portfolio/server/server.mjs"
   },
   "private": true,
