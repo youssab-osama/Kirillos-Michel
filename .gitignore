@@ -44,3 +44,7 @@ __screenshots__/
 Thumbs.db
 CVDetails.md
 systemPrompt.txt
+.claude/
+.gemini/
+.vscode/
+AGENTS.md
