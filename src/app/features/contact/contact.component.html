@@ -1,0 +1,138 @@
+<section class="contact" id="contact" aria-label="Contact section">
+  <div class="contact__bg" aria-hidden="true">
+    <div class="contact__gradient"></div>
+    <div class="contact__grid"></div>
+  </div>
+
+  <div class="container contact__container">
+    <!-- Header -->
+    <div class="contact__header">
+      <p class="section-label">// Get In Touch</p>
+      <h2 class="section-title">Contact</h2>
+    </div>
+
+    <!-- Alert Panel -->
+    <div class="alert-panel" role="region" aria-label="Contact alert panel">
+      <!-- Panel Header Bar -->
+      <div class="alert-panel__header" aria-hidden="true">
+        <div class="alert-panel__header-left">
+          <span class="alert-panel__dot alert-panel__dot--red"></span>
+          <span class="alert-panel__dot alert-panel__dot--yellow"></span>
+          <span class="alert-panel__dot alert-panel__dot--green"></span>
+        </div>
+        <span class="alert-panel__title-bar">SYSTEM::ALERT_PANEL v1.0</span>
+        <span class="alert-panel__status">
+          <span class="alert-panel__status-dot" aria-hidden="true"></span>
+          ONLINE
+        </span>
+      </div>
+
+      <!-- Panel Body -->
+      <div class="alert-panel__body">
+        <!-- Left: Warning Display -->
+        <div class="alert-panel__warning">
+          <!-- Big Red Icon -->
+          <div class="alert-panel__icon-wrapper" aria-hidden="true">
+            <svg class="alert-panel__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <line x1="12" y1="9" x2="12" y2="13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              <line x1="12" y1="17" x2="12.01" y2="17" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+
+          <div class="alert-panel__warning-text">
+            <p class="alert-panel__warning-code" aria-label="Alert code">
+              ALERT_CODE: 0x4B4D_CONTACT
+            </p>
+            <h3 class="alert-panel__warning-title">
+              Potential Collaboration Detected
+            </h3>
+            <p class="alert-panel__warning-msg">
+              Initiating secure channel. Available for penetration testing
+              engagements, security audits, and software engineering projects.
+              Response time: within 24 hours.
+            </p>
+          </div>
+        </div>
+
+        <!-- Divider -->
+        <div class="alert-panel__divider" aria-hidden="true">
+          <span class="alert-panel__divider-label">// CHOOSE CHANNEL</span>
+        </div>
+
+        <!-- Loading Bar -->
+        <div class="alert-panel__loading" role="progressbar" [attr.aria-valuenow]="loadProgress()" aria-valuemin="0" aria-valuemax="100" aria-label="Connection status">
+          <div class="alert-panel__loading-label">
+            <span>ESTABLISHING CONNECTION</span>
+            <span class="alert-panel__loading-pct">{{ loadProgress() }}%</span>
+          </div>
+          <div class="alert-panel__loading-track">
+            <div
+              class="alert-panel__loading-fill"
+              [style.width.%]="loadProgress()"
+            ></div>
+          </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="alert-panel__actions">
+          <!-- Email -->
+          <a
+            href="mailto:kirol01sbusiness@gmail.com"
+            class="alert-btn alert-btn--email"
+            aria-label="Send email to Kirolos Michel"
+            id="contact-email-btn"
+          >
+            <div class="alert-btn__icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M22 6l-10 7L2 6" stroke="currentColor" stroke-width="1.5"/>
+              </svg>
+            </div>
+            <div class="alert-btn__text">
+              <span class="alert-btn__label">Primary Channel</span>
+              <span class="alert-btn__value">kirol01sbusiness&#64;gmail.com</span>
+            </div>
+            <div class="alert-btn__badge" aria-hidden="true">EMAIL</div>
+          </a>
+
+          <!-- LinkedIn -->
+          <a
+            href="https://linkedin.com/in/kirolos-michel"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="alert-btn alert-btn--linkedin"
+            aria-label="Connect with Kirolos Michel on LinkedIn"
+            id="contact-linkedin-btn"
+          >
+            <div class="alert-btn__icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/>
+                <circle cx="4" cy="4" r="2"/>
+              </svg>
+            </div>
+            <div class="alert-btn__text">
+              <span class="alert-btn__label">Professional Network</span>
+              <span class="alert-btn__value">Kirolos Michel</span>
+            </div>
+            <div class="alert-btn__badge" aria-hidden="true">LinkedIn</div>
+          </a>
+        </div>
+
+        <!-- System Log -->
+        <div class="alert-panel__log" aria-hidden="true">
+          <p class="alert-panel__log-line"><span class="log-time">[00:00:01]</span> System initialized...</p>
+          <p class="alert-panel__log-line"><span class="log-time">[00:00:02]</span> Portfolio loaded successfully.</p>
+          <p class="alert-panel__log-line"><span class="log-time">[00:00:03]</span> Awaiting visitor input<span class="cursor-blink">_</span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="contact__footer">
+    <p class="contact__footer-text">
+      Designed &amp; built by <span class="gradient-text">Kirolos Michel</span> · {{ currentYear }} · Cairo, Egypt
+    </p>
+  </footer>
+</section>

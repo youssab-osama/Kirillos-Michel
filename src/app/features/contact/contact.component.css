@@ -1,0 +1,392 @@
+.contact {
+  position: relative;
+  padding: var(--section-padding);
+  padding-bottom: 0;
+  overflow: hidden;
+}
+
+.contact__bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.contact__gradient {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 80%, rgba(239, 68, 68, 0.08) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 80% 20%, rgba(124, 58, 237, 0.07) 0%, transparent 60%),
+    linear-gradient(180deg, var(--clr-bg) 0%, var(--clr-bg-secondary) 100%);
+}
+
+.contact__grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(239, 68, 68, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(239, 68, 68, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+.contact__container {
+  position: relative;
+  z-index: 1;
+}
+
+.contact__header {
+  margin-bottom: 3rem;
+}
+
+/* Alert Panel */
+.alert-panel {
+  max-width: 800px;
+  margin: 0 auto;
+  background: rgba(4, 4, 8, 0.9);
+  border: 1px solid rgba(239, 68, 68, 0.25);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow:
+    0 0 0 1px rgba(239, 68, 68, 0.05),
+    0 4px 60px rgba(239, 68, 68, 0.1),
+    inset 0 0 40px rgba(239, 68, 68, 0.02);
+}
+
+/* Panel Header */
+.alert-panel__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1.25rem;
+  background: rgba(239, 68, 68, 0.08);
+  border-bottom: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+.alert-panel__header-left {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.alert-panel__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.alert-panel__dot--red { background: #ef4444; }
+.alert-panel__dot--yellow { background: #f59e0b; }
+.alert-panel__dot--green { background: #22c55e; }
+
+.alert-panel__title-bar {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.15em;
+  color: rgba(239, 68, 68, 0.8);
+  text-transform: uppercase;
+}
+
+.alert-panel__status {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  color: #22c55e;
+}
+
+.alert-panel__status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #22c55e;
+  box-shadow: 0 0 6px #22c55e;
+  animation: pulse-dot 2s ease infinite;
+}
+
+/* Panel Body */
+.alert-panel__body {
+  padding: 2rem;
+}
+
+/* Warning Display */
+.alert-panel__warning {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  align-items: flex-start;
+}
+
+.alert-panel__icon-wrapper {
+  flex-shrink: 0;
+  animation: alert-pulse 2s ease infinite;
+}
+
+@keyframes alert-pulse {
+  0%, 100% { opacity: 1; filter: drop-shadow(0 0 6px rgba(239, 68, 68, 0.6)); }
+  50% { opacity: 0.7; filter: drop-shadow(0 0 12px rgba(239, 68, 68, 0.9)); }
+}
+
+.alert-panel__icon {
+  width: 56px;
+  height: 56px;
+  color: var(--clr-red);
+}
+
+.alert-panel__warning-code {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.15em;
+  color: var(--clr-red);
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+}
+
+.alert-panel__warning-title {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--clr-text);
+  margin-bottom: 0.5rem;
+}
+
+.alert-panel__warning-msg {
+  font-size: 0.88rem;
+  color: var(--clr-text-muted);
+  line-height: 1.7;
+}
+
+/* Divider */
+.alert-panel__divider {
+  position: relative;
+  border-top: 1px solid var(--clr-border);
+  margin: 1.5rem 0;
+}
+
+.alert-panel__divider-label {
+  position: absolute;
+  top: -0.6rem;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0 0.75rem;
+  background: rgba(4, 4, 8, 0.9);
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  color: var(--clr-text-dim);
+  white-space: nowrap;
+}
+
+/* Loading Bar */
+.alert-panel__loading {
+  margin-bottom: 1.75rem;
+}
+
+.alert-panel__loading-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  color: var(--clr-text-dim);
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+}
+
+.alert-panel__loading-pct {
+  color: var(--clr-red-light);
+  font-weight: 600;
+}
+
+.alert-panel__loading-track {
+  height: 4px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.alert-panel__loading-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--clr-primary), var(--clr-red));
+  border-radius: 2px;
+  transition: width 0.06s linear;
+  box-shadow: 0 0 8px rgba(239, 68, 68, 0.5);
+}
+
+/* Action Buttons */
+.alert-panel__actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1.75rem;
+}
+
+.alert-btn {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.25rem;
+  background: var(--clr-surface);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-lg);
+  text-decoration: none;
+  color: var(--clr-text);
+  transition: all var(--transition-base);
+  position: relative;
+  overflow: hidden;
+}
+
+.alert-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity var(--transition-base);
+}
+
+.alert-btn--email:hover {
+  border-color: var(--clr-red);
+  box-shadow: var(--shadow-red);
+  transform: translateY(-2px);
+}
+
+.alert-btn--email:hover::before {
+  background: rgba(239, 68, 68, 0.05);
+  opacity: 1;
+}
+
+.alert-btn--linkedin:hover {
+  border-color: #0ea5e9;
+  box-shadow: 0 0 20px rgba(14, 165, 233, 0.25);
+  transform: translateY(-2px);
+}
+
+.alert-btn--linkedin:hover::before {
+  background: rgba(14, 165, 233, 0.05);
+  opacity: 1;
+}
+
+.alert-btn__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-sm);
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.alert-btn--email .alert-btn__icon {
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  color: var(--clr-red-light);
+}
+
+.alert-btn--linkedin .alert-btn__icon {
+  background: rgba(14, 165, 233, 0.1);
+  border: 1px solid rgba(14, 165, 233, 0.2);
+  color: #7dd3fc;
+}
+
+.alert-btn__text {
+  flex: 1;
+  min-width: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.alert-btn__label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--clr-text-dim);
+  margin-bottom: 0.25rem;
+}
+
+.alert-btn__value {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--clr-text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.alert-btn__badge {
+  flex-shrink: 0;
+  padding: 0.2rem 0.5rem;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  font-weight: 700;
+  position: relative;
+  z-index: 1;
+}
+
+.alert-btn--email .alert-btn__badge {
+  background: rgba(239, 68, 68, 0.15);
+  color: var(--clr-red-light);
+}
+
+.alert-btn--linkedin .alert-btn__badge {
+  background: rgba(14, 165, 233, 0.15);
+  color: #7dd3fc;
+}
+
+/* System Log */
+.alert-panel__log {
+  border-top: 1px solid var(--clr-border);
+  padding-top: 1rem;
+}
+
+.alert-panel__log-line {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--clr-text-dim);
+  padding: 0.15rem 0;
+  line-height: 1.5;
+}
+
+.log-time {
+  color: var(--clr-primary);
+  margin-right: 0.5rem;
+}
+
+/* Footer */
+.contact__footer {
+  margin-top: 4rem;
+  padding: 1.5rem;
+  border-top: 1px solid var(--clr-border);
+  text-align: center;
+}
+
+.contact__footer-text {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--clr-text-dim);
+  letter-spacing: 0.05em;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .alert-panel__warning {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .alert-panel__actions {
+    grid-template-columns: 1fr;
+  }
+
+  .alert-panel__title-bar {
+    display: none;
+  }
+}

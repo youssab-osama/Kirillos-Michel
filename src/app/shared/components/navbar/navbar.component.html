@@ -1,0 +1,72 @@
+<nav
+  class="navbar"
+  [class.navbar--hidden]="!navVisible()"
+  [class.navbar--scrolled]="scrolled()"
+  aria-label="Main navigation"
+>
+  <div class="navbar__inner">
+    <!-- Logo -->
+    <button
+      class="navbar__logo"
+      (click)="scrollTo('home')"
+      aria-label="Go to home section"
+      id="navbar-logo-btn"
+    >
+      <img
+        src="favicon.ico"
+        alt="KM Logo"
+        class="navbar__logo-icon"
+        width="28"
+        height="28"
+      />
+      <span class="navbar__logo-text">KM<span class="navbar__logo-dot">.</span></span>
+    </button>
+
+    <!-- Desktop Links -->
+    <ul class="navbar__links" role="list">
+      @for (item of navItems; track item.anchor) {
+        <li>
+          <button
+            class="navbar__link"
+            (click)="scrollTo(item.anchor)"
+            [id]="'nav-' + item.anchor"
+            [attr.aria-label]="'Navigate to ' + item.label + ' section'"
+          >
+            {{ item.label }}
+          </button>
+        </li>
+      }
+    </ul>
+
+    <!-- CTA + Hamburger -->
+    <div class="navbar__actions">
+      <button
+        class="navbar__cta btn-outline"
+        (click)="scrollTo('contact')"
+        aria-label="Get in touch"
+        id="navbar-cta-btn"
+      >
+        <span>Hire Me</span>
+      </button>
+      <button
+        class="navbar__hamburger"
+        (click)="toggleMenu()"
+        [attr.aria-expanded]="menuOpen()"
+        aria-label="Toggle navigation menu"
+        id="navbar-hamburger-btn"
+      >
+        <span class="hamburger-line" [class.open]="menuOpen()"></span>
+        <span class="hamburger-line" [class.open]="menuOpen()"></span>
+        <span class="hamburger-line" [class.open]="menuOpen()"></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- Overlay Menu -->
+<app-overlay-menu
+  [isOpen]="menuOpen()"
+  [navItems]="navItems"
+  (closeMenu)="closeMenu()"
+  (navigateTo)="scrollTo($event)"
+/>

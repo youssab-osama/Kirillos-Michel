@@ -1,0 +1,311 @@
+.projects {
+  position: relative;
+  padding: var(--section-padding);
+  overflow: hidden;
+}
+
+.projects__bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.projects__gradient {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 70% 60% at 30% 60%, rgba(124, 58, 237, 0.08) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 50% at 80% 20%, rgba(34, 211, 238, 0.05) 0%, transparent 50%),
+    linear-gradient(180deg, var(--clr-bg-secondary) 0%, var(--clr-bg) 100%);
+}
+
+.projects__container {
+  position: relative;
+  z-index: 1;
+}
+
+.projects__header {
+  margin-bottom: 3rem;
+}
+
+.projects__subtitle {
+  margin-top: 1rem;
+  font-size: 0.95rem;
+  color: var(--clr-text-muted);
+  max-width: 520px;
+}
+
+/* Layout */
+.projects__layout {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 2rem;
+  align-items: start;
+}
+
+/* Featured Card */
+.featured-card {
+  background: var(--clr-surface);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  transition: all var(--transition-slow);
+}
+
+.featured-card:hover {
+  border-color: rgba(124, 58, 237, 0.3);
+  box-shadow: var(--shadow-purple);
+}
+
+/* Visual / Image area */
+.featured-card__visual {
+  position: relative;
+  height: 240px;
+  overflow: hidden;
+}
+
+.featured-card__visual-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.featured-card__pattern {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.featured-card__pattern svg {
+  width: 100%;
+  height: 100%;
+}
+
+.featured-card__category {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  padding: 0.3rem 0.8rem;
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 2rem;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.8);
+  text-transform: uppercase;
+  backdrop-filter: blur(10px);
+}
+
+/* Info */
+.featured-card__info {
+  padding: 2rem;
+}
+
+.featured-card__title {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--clr-text);
+  margin-bottom: 0.75rem;
+  line-height: 1.3;
+}
+
+.featured-card__description {
+  font-size: 0.9rem;
+  color: var(--clr-text-muted);
+  line-height: 1.7;
+  margin-bottom: 1.75rem;
+}
+
+/* Stack */
+.featured-card__stack {
+  margin-bottom: 1.75rem;
+}
+
+.featured-card__stack-label {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--clr-text-dim);
+  margin-bottom: 0.75rem;
+}
+
+.featured-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.featured-card__tag {
+  padding: 0.25rem 0.75rem;
+  background: rgba(124, 58, 237, 0.1);
+  border: 1px solid rgba(124, 58, 237, 0.2);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--clr-primary-light);
+}
+
+.featured-card__github {
+  font-size: 0.78rem;
+  padding: 0.6rem 1.25rem;
+}
+
+/* Right List */
+.projects__list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.projects__list-label {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--clr-text-dim);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.projects__list-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  background: var(--clr-primary);
+  border-radius: 50%;
+  font-size: 0.65rem;
+  color: #fff;
+  font-family: var(--font-mono);
+}
+
+.projects__list-items {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  max-height: 480px;
+  overflow-y: auto;
+  padding-right: 0.25rem;
+}
+
+.projects__list-items::-webkit-scrollbar {
+  width: 3px;
+}
+
+/* Project List Item */
+.project-item {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  width: 100%;
+  padding: 0.875rem;
+  background: var(--clr-surface);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--transition-base);
+  text-align: left;
+  position: relative;
+  overflow: hidden;
+}
+
+.project-item:hover {
+  border-color: rgba(124, 58, 237, 0.3);
+  background: rgba(124, 58, 237, 0.05);
+}
+
+.project-item--active {
+  border-color: var(--clr-primary) !important;
+  background: rgba(124, 58, 237, 0.08) !important;
+}
+
+.project-item__thumb {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-sm);
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.project-item__category-dot {
+  position: absolute;
+  bottom: 4px;
+  right: 4px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.project-item__info {
+  flex: 1;
+  min-width: 0;
+}
+
+.project-item__title {
+  font-family: var(--font-heading);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--clr-text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 0.2rem;
+}
+
+.project-item__category {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--clr-text-dim);
+  letter-spacing: 0.05em;
+}
+
+.project-item__indicator {
+  width: 4px;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: var(--clr-primary);
+  transform: scaleY(0);
+  transition: transform var(--transition-base);
+  border-radius: 0 2px 2px 0;
+}
+
+.project-item--active .project-item__indicator {
+  transform: scaleY(1);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .projects__layout {
+    grid-template-columns: 1fr;
+  }
+
+  .projects__list {
+    order: -1;
+  }
+
+  .projects__list-items {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    max-height: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .projects__list-items {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,70 @@
+<section class="experience" id="experience" aria-label="Experience section">
+  <div class="experience__bg" aria-hidden="true">
+    <div class="experience__gradient"></div>
+  </div>
+
+  <div class="container experience__container">
+    <div class="experience__header">
+      <p class="section-label">// My Journey</p>
+      <h2 class="section-title">Experience</h2>
+    </div>
+
+    <!-- Timeline -->
+    <div class="timeline" role="list" aria-label="Career timeline">
+      @for (exp of experiences; track exp.company; let i = $index; let last = $last) {
+        <article
+          class="timeline__item"
+          role="listitem"
+          [class.timeline__item--work]="exp.type === 'work'"
+          [class.timeline__item--education]="exp.type === 'education'"
+        >
+          <!-- Timeline connector -->
+          <div class="timeline__connector" aria-hidden="true">
+            <div class="timeline__dot">
+              @if (exp.type === 'work') {
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" fill="currentColor"/>
+                </svg>
+              } @else {
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M22 10v6M2 10l10-5 10 5-10 5z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              }
+            </div>
+            @if (!last) {
+              <div class="timeline__line" aria-hidden="true"></div>
+            }
+          </div>
+
+          <!-- Content -->
+          <div class="timeline__content">
+            <div class="timeline__meta">
+              <span class="timeline__type-badge" [class.timeline__type-badge--work]="exp.type === 'work'" [class.timeline__type-badge--edu]="exp.type === 'education'">
+                {{ exp.type === 'work' ? 'Work' : 'Education' }}
+              </span>
+              <time class="timeline__duration">{{ exp.duration }}</time>
+            </div>
+
+            <h3 class="timeline__role">{{ exp.role }}</h3>
+            <p class="timeline__company">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" stroke="currentColor" stroke-width="1.5"/>
+                <circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="1.5"/>
+              </svg>
+              {{ exp.company }} · {{ exp.location }}
+            </p>
+
+            <ul class="timeline__responsibilities" aria-label="Responsibilities at {{ exp.company }}">
+              @for (resp of exp.responsibilities; track resp) {
+                <li class="timeline__responsibility">
+                  <span class="timeline__resp-bullet" aria-hidden="true">▸</span>
+                  {{ resp }}
+                </li>
+              }
+            </ul>
+          </div>
+        </article>
+      }
+    </div>
+  </div>
+</section>

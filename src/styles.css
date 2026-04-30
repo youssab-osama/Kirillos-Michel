@@ -1,1 +1,351 @@
-/* You can add global styles to this file, and also import other style files */
+/* ============================================================
+   GLOBAL DESIGN TOKENS & RESETS
+   Kirolos Michel – Cybersecurity Portfolio
+   ============================================================ */
+
+:root {
+  /* Color Palette */
+  --clr-bg: #040408;
+  --clr-bg-secondary: #080b14;
+  --clr-surface: rgba(255, 255, 255, 0.03);
+  --clr-surface-hover: rgba(255, 255, 255, 0.06);
+  --clr-border: rgba(255, 255, 255, 0.08);
+  --clr-border-hover: rgba(124, 58, 237, 0.4);
+
+  --clr-primary: #7c3aed;
+  --clr-primary-light: #9d5ff5;
+  --clr-primary-dark: #5b21b6;
+  --clr-primary-glow: rgba(124, 58, 237, 0.35);
+
+  --clr-cyan: #22d3ee;
+  --clr-cyan-light: #67e8f9;
+  --clr-cyan-glow: rgba(34, 211, 238, 0.3);
+
+  --clr-red: #ef4444;
+  --clr-red-light: #f87171;
+  --clr-red-glow: rgba(239, 68, 68, 0.35);
+
+  --clr-text: #f1f5f9;
+  --clr-text-muted: #94a3b8;
+  --clr-text-dim: #64748b;
+
+  /* Typography */
+  --font-heading: 'Orbitron', 'JetBrains Mono', monospace;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+  /* Spacing */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4rem;
+  --space-4xl: 6rem;
+
+  /* Layout */
+  --container-max: 1280px;
+  --section-padding: clamp(4rem, 10vh, 7rem) 1.5rem;
+
+  /* Effects */
+  --radius-sm: 0.375rem;
+  --radius-md: 0.625rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  --transition-fast: 0.15s ease;
+  --transition-base: 0.3s ease;
+  --transition-slow: 0.6s ease;
+
+  /* Shadows */
+  --shadow-purple: 0 0 20px rgba(124, 58, 237, 0.3), 0 0 60px rgba(124, 58, 237, 0.1);
+  --shadow-cyan: 0 0 20px rgba(34, 211, 238, 0.3), 0 0 60px rgba(34, 211, 238, 0.1);
+  --shadow-red: 0 0 20px rgba(239, 68, 68, 0.3), 0 0 60px rgba(239, 68, 68, 0.1);
+  --shadow-card: 0 4px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* ── Reset ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background-color: var(--clr-bg);
+  color: var(--clr-text);
+  font-family: var(--font-body);
+  font-weight: 400;
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--clr-bg-secondary);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--clr-primary);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--clr-primary-light);
+}
+
+/* ── Focus Styles (Accessibility) ── */
+:focus-visible {
+  outline: 2px solid var(--clr-cyan);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
+}
+
+/* ── Selection ── */
+::selection {
+  background: var(--clr-primary-glow);
+  color: var(--clr-text);
+}
+
+/* ── Typography ── */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 0.05em;
+  color: var(--clr-text);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+}
+
+/* ── Utility Classes ── */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.section-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.5rem, 4vw, 2.25rem);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--clr-text);
+  position: relative;
+  display: inline-block;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--clr-primary), var(--clr-cyan), transparent);
+}
+
+.section-label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--clr-cyan);
+  margin-bottom: var(--space-md);
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, var(--clr-primary-light), var(--clr-cyan));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: 0.75rem 1.75rem;
+  background: linear-gradient(135deg, var(--clr-primary), var(--clr-primary-dark));
+  color: #fff;
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--clr-primary);
+  transition: all var(--transition-base);
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--clr-primary-light), var(--clr-primary));
+  opacity: 0;
+  transition: opacity var(--transition-base);
+}
+
+.btn-primary:hover {
+  box-shadow: var(--shadow-purple);
+  transform: translateY(-2px);
+}
+
+.btn-primary:hover::before {
+  opacity: 1;
+}
+
+.btn-primary span {
+  position: relative;
+  z-index: 1;
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: 0.75rem 1.75rem;
+  background: transparent;
+  color: var(--clr-cyan);
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--clr-cyan);
+  transition: all var(--transition-base);
+  cursor: pointer;
+}
+
+.btn-outline:hover {
+  background: var(--clr-cyan-glow);
+  box-shadow: var(--shadow-cyan);
+  transform: translateY(-2px);
+}
+
+.card {
+  background: var(--clr-surface);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  backdrop-filter: blur(10px);
+  transition: all var(--transition-base);
+}
+
+.card:hover {
+  border-color: var(--clr-border-hover);
+  box-shadow: var(--shadow-purple);
+  transform: translateY(-4px);
+}
+
+/* ── Glitch Text Animation ── */
+@keyframes glitch-1 {
+  0%, 90%, 100% { transform: none; opacity: 1; }
+  91% { transform: skew(-1deg) translateX(2px); opacity: 0.8; clip-path: polygon(0 20%, 100% 20%, 100% 40%, 0 40%); }
+  93% { transform: skew(1deg) translateX(-2px); opacity: 0.9; clip-path: polygon(0 60%, 100% 60%, 100% 80%, 0 80%); }
+  95% { transform: none; opacity: 1; clip-path: none; }
+}
+
+@keyframes glitch-2 {
+  0%, 85%, 100% { transform: none; opacity: 0; }
+  86% { transform: translateX(3px); opacity: 0.7; color: var(--clr-cyan); }
+  88% { transform: translateX(-3px); opacity: 0.5; color: var(--clr-red); }
+  90% { transform: none; opacity: 0; }
+}
+
+.glitch-text {
+  position: relative;
+  animation: glitch-1 5s infinite;
+}
+
+.glitch-text::before,
+.glitch-text::after {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.glitch-text::before {
+  animation: glitch-2 5s infinite;
+  color: var(--clr-cyan);
+}
+
+.glitch-text::after {
+  animation: glitch-2 5s infinite 0.1s;
+  color: var(--clr-red);
+}
+
+/* ── Scan Line Animation ── */
+@keyframes scan-line {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(200vh); }
+}
+
+.scan-overlay::after {
+  content: '';
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--clr-cyan), transparent);
+  opacity: 0.3;
+  animation: scan-line 8s linear infinite;
+  pointer-events: none;
+  z-index: 1000;
+}
+
+/* ── Intersection Observer Reveal ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Typing cursor ── */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.cursor-blink {
+  animation: blink 1s step-start infinite;
+}

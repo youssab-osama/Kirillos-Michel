@@ -1,0 +1,198 @@
+.services {
+  position: relative;
+  padding: var(--section-padding);
+  overflow: hidden;
+}
+
+.services__bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.services__gradient {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 70% 60% at 90% 30%, rgba(34, 211, 238, 0.06) 0%, transparent 60%),
+    linear-gradient(180deg, var(--clr-bg-secondary) 0%, var(--clr-bg) 100%);
+}
+
+.services__container {
+  position: relative;
+  z-index: 1;
+}
+
+.services__header {
+  margin-bottom: 3.5rem;
+}
+
+.services__subtitle {
+  margin-top: 1rem;
+  font-size: 1rem;
+  color: var(--clr-text-muted);
+  max-width: 500px;
+}
+
+/* Grid */
+.services__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+/* Card */
+.service-card {
+  position: relative;
+  background: var(--clr-surface);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-lg);
+  padding: 2rem 1.75rem;
+  overflow: hidden;
+  transition: all var(--transition-slow);
+  cursor: default;
+}
+
+.service-card:hover {
+  border-color: transparent;
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-purple);
+}
+
+/* Animated border on hover */
+.service-card__border {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-lg);
+  padding: 1px;
+  background: linear-gradient(135deg, var(--clr-primary), var(--clr-cyan), var(--clr-primary));
+  background-size: 200% 200%;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity var(--transition-slow);
+  animation: border-rotate 3s linear infinite paused;
+}
+
+.service-card:hover .service-card__border {
+  opacity: 1;
+  animation-play-state: running;
+}
+
+@keyframes border-rotate {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Scan Line */
+.service-card__scan {
+  position: absolute;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--clr-cyan), transparent);
+  opacity: 0;
+  transition: opacity var(--transition-base);
+  animation: card-scan 2s linear infinite paused;
+}
+
+.service-card:hover .service-card__scan {
+  opacity: 0.4;
+  animation-play-state: running;
+}
+
+@keyframes card-scan {
+  0% { top: -2px; }
+  100% { top: 100%; }
+}
+
+/* Icon */
+.service-card__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-md);
+  background: rgba(124, 58, 237, 0.12);
+  border: 1px solid rgba(124, 58, 237, 0.25);
+  color: var(--clr-primary-light);
+  margin-bottom: 1.5rem;
+  transition: all var(--transition-base);
+}
+
+.service-card:hover .service-card__icon {
+  background: rgba(124, 58, 237, 0.2);
+  box-shadow: var(--shadow-purple);
+  transform: rotate(-5deg) scale(1.05);
+}
+
+/* Number */
+.service-card__number {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--clr-text-dim);
+  letter-spacing: 0.1em;
+}
+
+/* Title */
+.service-card__title {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--clr-text);
+  margin-bottom: 0.75rem;
+}
+
+/* Description */
+.service-card__description {
+  font-size: 0.88rem;
+  color: var(--clr-text-muted);
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+/* Features */
+.service-card__features {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.service-card__feature {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--clr-text-muted);
+  letter-spacing: 0.02em;
+}
+
+.service-card__feature-bullet {
+  color: var(--clr-cyan);
+  font-size: 1rem;
+  line-height: 1;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .services__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .services__grid {
+    grid-template-columns: 1fr;
+  }
+}
