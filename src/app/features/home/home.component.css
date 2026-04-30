@@ -374,6 +374,7 @@
     flex-direction: column;
     text-align: center;
     padding-top: 7rem;
+    padding-bottom: 5rem;
   }
 
   .home__image-frame {
